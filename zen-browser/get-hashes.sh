@@ -4,7 +4,7 @@
 
 latest_version=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest | jq -r '.tag_name')
 base_url="https://github.com/zen-browser/desktop/releases/download/${latest_version}"
-files=("zen.macos-x64.dmg" "zen.macos-aarch64.dmg" "zen.linux-specific.tar.bz2" "zen.linux-specific.tar.bz2")
+files=("zen.macos-x64.dmg" "zen.macos-aarch64.dmg" "zen.linux-specific.tar.bz2")
 
 echo 'Updating version in zen.nix'
 sed -Ei "s/myZenVersion = \"(.*)\"/myZenVersion = \"${latest_version}\"/g" zen.nix
